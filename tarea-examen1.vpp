@@ -1,0 +1,45 @@
+#! /opt/homebrew/Cellar/icarus-verilog/11.0/bin/vvp
+:ivl_version "11.0 (stable)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/system.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_sys.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/vhdl_textio.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/v2005_math.vpi";
+:vpi_module "/opt/homebrew/Cellar/icarus-verilog/11.0/lib/ivl/va_math.vpi";
+S_0x11fe04760 .scope module, "tarea" "tarea" 2 3;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 1 "A1";
+    .port_info 1 /INPUT 1 "A2";
+    .port_info 2 /INPUT 1 "B1";
+    .port_info 3 /INPUT 1 "B2";
+    .port_info 4 /INPUT 1 "D1";
+    .port_info 5 /OUTPUT 1 "E_out";
+    .port_info 6 /OUTPUT 1 "A_out";
+    .port_info 7 /OUTPUT 1 "B_out";
+    .port_info 8 /OUTPUT 1 "C_out";
+o0x110040010 .functor BUFZ 1, C4<z>; HiZ drive
+o0x110040040 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x600000c643f0 .functor AND 1, o0x110040010, o0x110040040, C4<1>, C4<1>;
+o0x1100400a0 .functor BUFZ 1, C4<z>; HiZ drive
+o0x1100400d0 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x600000c64460 .functor OR 1, o0x1100400a0, o0x1100400d0, C4<0>, C4<0>;
+L_0x600000c644d0 .functor AND 1, L_0x600000c64540, o0x1100400d0, C4<1>, C4<1>;
+o0x110040160 .functor BUFZ 1, C4<z>; HiZ drive
+L_0x600000c64540 .functor NOT 1, o0x110040160, C4<0>, C4<0>, C4<0>;
+L_0x600000c645b0 .functor OR 1, L_0x600000c643f0, L_0x600000c64460, L_0x600000c644d0, C4<0>;
+v0x600001564360_0 .net "A1", 0 0, o0x110040010;  0 drivers
+v0x6000015643f0_0 .net "A2", 0 0, o0x110040040;  0 drivers
+v0x600001564480_0 .net "A_out", 0 0, L_0x600000c643f0;  1 drivers
+v0x600001564510_0 .net "B1", 0 0, o0x1100400a0;  0 drivers
+v0x6000015645a0_0 .net "B2", 0 0, o0x1100400d0;  0 drivers
+v0x600001564630_0 .net "B_out", 0 0, L_0x600000c64460;  1 drivers
+v0x6000015646c0_0 .net "C_out", 0 0, L_0x600000c644d0;  1 drivers
+v0x600001564750_0 .net "D1", 0 0, o0x110040160;  0 drivers
+v0x6000015647e0_0 .net "E_out", 0 0, L_0x600000c645b0;  1 drivers
+v0x600001564870_0 .net *"_ivl_0", 0 0, L_0x600000c64540;  1 drivers
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "tarea-examen1.v";
